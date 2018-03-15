@@ -12,6 +12,8 @@ class Post < ActiveRecord::Base
     atrs.values.each do |v|
       puts '******'
       puts v
+      print v
+      puts
       puts '******'
       self.tags << Tag.find_or_create_by(v)
     end
