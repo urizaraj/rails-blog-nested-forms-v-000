@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :tags, reject_if: :all_blank
 
-  def tag_attributes(attributes)
-    self.tags << Tag.find_or_create_by(attributes)
+  def tag_attributes(atrs)
+    atrs.values.each { |v| self.tags << Tag.find_or_create_by(v) }
   end
 end
