@@ -7,4 +7,8 @@ class Post < ActiveRecord::Base
   validates_presence_of :name, :content
 
   accepts_nested_attributes_for :tags, reject_if: :all_blank
+
+  def tag_attributes(attributes)
+    self.tags << Tag.find_or_create_by(attributes)
+  end
 end
