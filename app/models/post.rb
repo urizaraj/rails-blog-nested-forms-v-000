@@ -10,7 +10,9 @@ class Post < ActiveRecord::Base
 
   def tag_attributes(atrs)
     atrs.values.each do |v|
+      puts '******'
       puts v
+      puts '******'
       self.tags << Tag.find_or_create_by(v)
     end
   end
