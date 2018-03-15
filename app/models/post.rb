@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :tags, reject_if: :all_blank
 
-  def tag_attributes(atrs)
+  def tags_attributes(atrs)
     atrs.values.each do |v|
       puts '******'
       puts v
